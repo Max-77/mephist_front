@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "plugins": [{ "name": "typescript-plugin-css-modules" }],
+    "module": "commonjs",
+    "target": "es5",
+    "sourceMap": true,
+    "jsx" : "react",
+    "skipLibCheck": true
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}

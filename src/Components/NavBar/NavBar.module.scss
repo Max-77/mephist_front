@@ -1,0 +1,53 @@
+@import 'src/_variables';
+
+.root {
+  height: 30px;
+  background:$dark-blue;
+  padding:2%;
+  text-align:center;
+}
+
+.grid {
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.appbar {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1;
+  justify-content: space-evenly;
+  margin-top: 0;
+}
+
+.text {
+  color: $white;
+  text-align: center;
+  z-index: 0;
+}
+
+.btn{
+  color:$light-gray;
+  background: rgba(0, 0, 0, 0.5);
+  padding:10px 20px;
+  font-size:12px;
+  text-decoration:none;
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+
+.btn:hover{
+  border:none;
+  background:$white;
+  padding:20px 20px;
+  color:$dark-gray;
+}
+
+* {
+  -webkit-transition-property: all;
+  -webkit-transition-duration: .2s;
+  -moz-transition-timing-function: cubic-bezier(100,50,21,6);
+  -moz-transition-property: all;
+}
