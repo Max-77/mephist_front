@@ -8,10 +8,11 @@ import {Router} from "./pages/Router"
 
 const App: React.FC = () =>(
     <ReduxProvider store={store}>
+        <DarkThemeToggle/>
         <DarkThemeProvider>
-            <DarkThemeToggle/>
             <Router/>
         </DarkThemeProvider>
+
     </ReduxProvider>
 );
 

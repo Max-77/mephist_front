@@ -1,0 +1,54 @@
+@import "src/_variables.scss";
+
+input {
+  //height: 40px;
+  //left: 0;
+  opacity: 0;
+  //position: absolute;
+  //top: 0;
+  //width: 40px;
+}
+
+.toggle {
+  position: relative;
+  display: inline-block;
+}
+
+label.toggle-item {
+  width: 7em;
+  background: $dark-blue;
+  border-radius: 50px;
+  height: 3em;
+  display: inline-block;
+  margin-left: 85%; //set otstupi
+  margin-top: 43%;
+  position: fixed;
+  cursor: pointer;
+}
+
+.checkcross {
+  position: absolute;
+  .check {
+    border-radius: 50%;
+    width: 2.5em;
+    height: 2.5em;
+    position: absolute;
+    background: $yellow;
+    transition: .4s ease;
+    top: 4.5px;
+    left: 4.5px;
+  }
+}
+
+#checkcross:checked + label {
+  .check {
+    left: 68px;
+    background: $white;
+    &:before {
+      width: 27px;
+    }
+    &:after {
+      width: 27px;
+    }
+  }
+}

@@ -1,13 +1,12 @@
 import { Link } from 'react-router-dom';
 import * as React from 'react';
 import Routes, { RoutesNames } from '../../pages/routes';
-import DarkThemeToggle from "../Themes/ThemeToggle";
-
+import DarkThemeProvider from "../Themes/DarkThemeProvider";
 interface IProps {
     name: string;
 }
-
 import s from './NavBar.module.scss'
+
 
 const NavBar: React.FC<IProps> = (props: IProps) => {
     return (

@@ -1,0 +1,27 @@
+.btn{
+  font-family: 'Oswald', sans-serif;
+  text-transform:uppercase;
+  letter-spacing: 2px;
+  border-radius: 15px;
+  opacity: 1;
+}
+
+.content{
+  font-family: 'Oswald', sans-serif;
+  text-transform:uppercase;
+  letter-spacing: 2px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding-top: 30px;
+}
+
+.best{
+  font-family: 'Oswald', sans-serif;
+  text-transform:uppercase;
+  letter-spacing: 2px;
+  border-color: black;
+  height: 100px;
+  width: 100px;
+  background-color: red;
+}
