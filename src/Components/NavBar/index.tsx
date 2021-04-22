@@ -7,7 +7,6 @@ interface IProps {
 }
 import s from './NavBar.module.scss'
 
-
 const NavBar: React.FC<IProps> = (props: IProps) => {
     return (
         <div className={s.root}>

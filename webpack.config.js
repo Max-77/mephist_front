@@ -65,7 +65,12 @@ const config = {
         open : true,
         hot : true,
         historyApiFallback: true,
-        contentBase: './dist'
+        contentBase: './dist',
+        proxy: {
+            "/api": {
+                target: "http://localhost:3000"
+            }
+        }
     },
     plugins: [
         new HtmlWebpackPlugin({

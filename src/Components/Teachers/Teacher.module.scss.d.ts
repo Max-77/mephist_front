@@ -4,6 +4,10 @@ interface CssExports {
   'best': string;
   'btn': string;
   'content': string;
+  'hide': string;
+  'letter': string;
+  'letters': string;
+  'not_hide': string;
 }
 export const cssExports: CssExports;
 export default cssExports;

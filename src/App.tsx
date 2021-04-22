@@ -12,7 +12,6 @@ const App: React.FC = () =>(
         <DarkThemeProvider>
             <Router/>
         </DarkThemeProvider>
-
     </ReduxProvider>
 );
 
