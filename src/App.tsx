@@ -6,13 +6,15 @@ import store from "./store";
 import DarkThemeToggle from "./Components/Themes/ThemeToggle";
 import {Router} from "./pages/Router"
 
-const App: React.FC = () =>(
-    <ReduxProvider store={store}>
+const App: React.FC = () => {
+    return(
+        <ReduxProvider store={store}>
         <DarkThemeToggle/>
         <DarkThemeProvider>
             <Router/>
         </DarkThemeProvider>
     </ReduxProvider>
-);
+    )
+};
 
 export default App;

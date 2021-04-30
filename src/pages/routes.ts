@@ -5,9 +5,9 @@ enum Routes {
 }
 
 export enum RoutesNames {
-    ROOT = 'ROOT',
-    TEACHERS = 'Teachers',
-    NEWS = 'NEWS'
+    ROOT = 'Главная страницы',
+    TEACHERS = 'Преподаватели',
+    NEWS = 'новости'
 }
 
 export default Routes;

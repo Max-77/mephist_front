@@ -1,8 +1,10 @@
+@import 'src/_variables';
+
 .btn{
   font-family: 'Oswald', sans-serif;
   text-transform:uppercase;
   letter-spacing: 2px;
-  border-radius: 15px;
+  border-radius: 13px;
   opacity: 1;
 }
 
@@ -14,16 +16,30 @@
   flex-direction: row;
   justify-content: space-evenly;
   padding-top: 30px;
+  height: 100%;
 }
 
 .best{
   font-family: 'Oswald', sans-serif;
   text-transform:uppercase;
   letter-spacing: 2px;
-  border-color: black;
+  border-radius: 5px;
+  border: 2px solid $black;
+  height: 100px;
+  width: 300px;
+  background-color: green;
+}
+
+.worst{
+  font-family: 'Oswald', sans-serif;
+  text-transform:uppercase;
+  letter-spacing: 2px;
+  border-radius: 5px;
+  border: 2px solid $black;
   height: 100px;
   width: 300px;
   background-color: red;
+  margin-top: 10px;
 }
 
 .letters{
@@ -31,34 +47,47 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  //justify-content: center;
 }
 
-.letter{
-  border: 2px solid #1b1b1b;
+%let_main{
+  border: 2px solid $black;
   width: 70px;
   height: 70px;
   margin: 5px;
+}
+.letter{
+  @extend %let_main;
   background-color: white;
 }
-
 .letter:hover{
-  background-color: red;
+  background-color: $lightblue;
   cursor: pointer;
+}
+.chosen_letter{
+  @extend %let_main;
+  background-color: $lightblue;
 }
 
 .hide{
-  background: #e0e0e0;
   width:0;
   height:0;
   overflow: hidden;
   transition-timing-function: ease-out;
   transition: all 1s;
 }
-
 .not_hide{
   width:auto;
   height: auto;
   transition-timing-function: ease-in;
   transition: all 1s;
+}
+
+a{ text-decoration: none; color: inherit;}
+a:visited{text-decoration: none; color: inherit;}
+a:active{text-decoration: none; color: inherit;}
+a:hover{text-decoration: none;}
+
+.greeting{
+  margin-top: 10px;
+  text-align: center;
 }

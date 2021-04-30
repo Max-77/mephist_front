@@ -5,6 +5,7 @@
   background:$dark-blue;
   padding:2%;
   text-align:center;
+  color: $lightblue;
 }
 .root_light {
   height: 30px;
@@ -28,13 +29,12 @@
 }
 
 .text {
-  color: $white;
+  color: white;
   text-align: center;
   z-index: 0;
 }
 
 .btn{
-  color:$light-gray;
   background: rgba(0, 0, 0, 0.5);
   padding:10px 20px;
   font-size:12px;
@@ -45,7 +45,7 @@
 
 .btn:hover{
   border:none;
-  background:$white;
+  background:$lightblue;
   padding:20px 20px;
   color:$dark-gray;
 }

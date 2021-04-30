@@ -1,12 +1,7 @@
 @import "src/_variables.scss";
 
 input {
-  //height: 40px;
-  //left: 0;
   opacity: 0;
-  //position: absolute;
-  //top: 0;
-  //width: 40px;
 }
 
 .toggle {
@@ -21,7 +16,7 @@ label.toggle-item {
   height: 3em;
   display: inline-block;
   margin-left: 85%; //set otstupi
-  margin-top: 43%;
+  margin-top: 50%;
   position: fixed;
   cursor: pointer;
 }
@@ -43,7 +38,7 @@ label.toggle-item {
 #checkcross:checked + label {
   .check {
     left: 68px;
-    background: $white;
+    background: $lightblue;
     &:before {
       width: 27px;
     }

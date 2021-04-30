@@ -21,21 +21,18 @@ const TeachersComponent: React.FC = () =>{
     return(
         <DarkThemeProvider>
     <div>
-    Welcome on the teachers page!
+    <div className={s.greeting}>Welcome on the teachers page!</div>
         <div className={s.content}>
             <div className={s.letters}>
                 {letters.map((item, index)=>(
                     <div key={index}>
-                            <button className={s.letter} onClick={(e)=>changeActive(e,index)}>
-                                {item}
-                            </button>
+                        <button className={active === index ? s.chosen_letter : s.letter} id={index.toString()} onClick={(e)=>changeActive(e,index)}>
+                            {item}
+                        </button>
                         <div className={active === index ? s.not_hide : s.hide} id={index.toString()}>
-                            Зубавленко Владимир Иванович <br/>
-                            Зубавленко Владимир Иванович <br/>
-                            Зубавленко Владимир Иванович <br/>
-                            Зубавленко Владимир Иванович <br/>
+                            <a href = "#"> Фамилия Имя Отчество 1 </a>
+                            <a href = "#"> Фамилия Имя Отчество 2</a>
                         </div>
-
                     </div>
                 ))}
             </div>
@@ -43,8 +40,13 @@ const TeachersComponent: React.FC = () =>{
             <input type="text" placeholder="Start typo.." autoComplete="false" className={s.btn}/>
             <input type="button" className={s.btn} value={"Find!"}/>
         </div>
-        <div className={s.best}>
-            /* Best Rated Teachers */
+        <div>
+            <div className={s.best}>
+                /* Best Rated Teachers */
+            </div>
+            <div className={s.worst}>
+                /* Worst Rated Teachers */
+            </div>
         </div>
         </div>
     </div>

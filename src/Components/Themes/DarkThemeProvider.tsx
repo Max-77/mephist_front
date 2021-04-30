@@ -14,10 +14,11 @@ const lightMode = {
     textColor_: "#2d2d2d"
 }
 
-const Container = styled.div`
+const Wrapper = styled.div`
   font-family: 'Oswald', sans-serif;
-  text-transform:uppercase;
-  height: 100%;
+  text-transform: uppercase;
+  height: auto;
+  margin-left: 0;
   background-color: ${props => props.theme.backgroundColor_};
   color: ${props=>props.theme.textColor_};
 `;
@@ -26,9 +27,9 @@ const DarkThemeProvider = ({ children }) => {
     const darkThemeEnabled = useSelector((state:any) => state.preferences.darkThemeEnabled);
     return (
         <ThemeProvider theme={darkThemeEnabled ? darkMode : lightMode }>
-            <Container>
+            <Wrapper>
                 {children}
-            </Container>
+            </Wrapper>
         </ThemeProvider>
     );
 };

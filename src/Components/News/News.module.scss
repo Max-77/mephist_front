@@ -1,0 +1,61 @@
+@import "../../_variables";
+
+.grid{
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  height: 100%;
+  margin-left: 20%;
+  text-align: center;
+}
+.news_full{
+  margin-top: 3%;
+}
+%news_title_main{
+  cursor: pointer;
+  border: 2px solid $black;
+  background-color: $light-gray;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+.news_title_unchosen{
+  @extend %news_title_main;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+.news_title_unchosen:hover{
+  background-color: $lightblue;
+  color: $black
+}
+.news_title_chosen{
+  @extend %news_title_main;
+  background-color: $lightblue;
+  color: $black;
+}
+%news_text{
+  border: 2px solid $black;
+  border-top: none;
+  background-color: $lightblue;
+  color: $black;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+.news_text_hidden{
+  @extend %news_text;
+  overflow: hidden;
+  width: 0;
+  height: 0;
+  border: none;
+}
+.news_text_shown{
+  @extend %news_text;
+  width: auto;
+  height: auto;
+}
+.greeting{margin-top: 1%}
+
+.biggrid{
+  display: flex;
+  flex-direction: row;
+  height: 150%;
+}
