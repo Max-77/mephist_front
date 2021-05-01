@@ -9,7 +9,9 @@ interface CssExports {
   'hide': string;
   'letter': string;
   'letters': string;
+  'main_content': string;
   'not_hide': string;
+  'teacher': string;
   'worst': string;
 }
 export const cssExports: CssExports;

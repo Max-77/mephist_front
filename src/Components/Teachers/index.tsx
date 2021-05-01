@@ -1,21 +1,36 @@
 import * as React from "react"
 import s from "./Teacher.module.scss"
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import DarkThemeProvider from "../Themes/DarkThemeProvider";
+import LettersComponent from "./letters";
 
-let letters = ['А','Б','В','Г','Д','Е','Ж','З','И','К','Л','М','Н','О','П','Р','С','Т','У','Ф','Х','Ц','Ч','Ш','Щ','Э','Ю','Я'];
+interface Teacher{
+    name : string,
+    surname : string,
+    middlename : string,
+    character : number,
+    quality : number,
+    credits_exams : number
+}
+
+const teach : Teacher ={name:'', surname:'', middlename:'',character:0,quality:0,credits_exams:0}
 
 const TeachersComponent: React.FC = () =>{
 
-    let [active, setActive] = useState(-1);
-
-    const changeActive = (e, index) =>{
-        e.preventDefault();
-        if (active === index){
-            setActive(-1);
-            return;
-        }
-        setActive(index);
+    let [person, setPerson] = useState(teach);
+    const handleName = ()=>{
+        fetch('/api/teachers')
+            .then((res)=>res.json())
+            .then((result=>{
+                const teacher : Teacher ={name:result[0].name,
+                    surname: result[0].surname,
+                    middlename: result[0].middlename,
+                    character: result[0].character,
+                    quality:result[0].quality,
+                    credits_exams:result[0].credits_exams}
+                setPerson(teacher);
+            }))
+        return ''
     }
 
     return(
@@ -23,22 +38,20 @@ const TeachersComponent: React.FC = () =>{
     <div>
     <div className={s.greeting}>Welcome on the teachers page!</div>
         <div className={s.content}>
-            <div className={s.letters}>
-                {letters.map((item, index)=>(
-                    <div key={index}>
-                        <button className={active === index ? s.chosen_letter : s.letter} id={index.toString()} onClick={(e)=>changeActive(e,index)}>
-                            {item}
-                        </button>
-                        <div className={active === index ? s.not_hide : s.hide} id={index.toString()}>
-                            <a href = "#"> Фамилия Имя Отчество 1 </a>
-                            <a href = "#"> Фамилия Имя Отчество 2</a>
-                        </div>
-                    </div>
-                ))}
+            <LettersComponent/>
+        <div >
+            <div>
+                <input type="text" placeholder="Start typo.." autoComplete="false" className={s.btn}/>
+                <input type="button" className={s.btn} value={"Find!"}/>
             </div>
-        <div>
-            <input type="text" placeholder="Start typo.." autoComplete="false" className={s.btn}/>
-            <input type="button" className={s.btn} value={"Find!"}/>
+            <div className={s.teacher}>
+                <div> {person.surname === ''?'Выбери преподавателя':person.surname} </div>
+                <div> {person.name} </div>
+                <div> {person.middlename}</div>
+                <div> {person.quality===0?'':'Качество преподавания:'+person.quality}</div>
+                <div> {person.character===0?'':'Характер: '+person.character}</div>
+                <div> {person.credits_exams===0?'': 'Приём зачётов/экзаменов: '+ person.credits_exams}</div>
+            </div>
         </div>
         <div>
             <div className={s.best}>

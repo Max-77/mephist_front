@@ -91,3 +91,21 @@ a:hover{text-decoration: none;}
   margin-top: 10px;
   text-align: center;
 }
+
+.main_content{
+  display: flex;
+  flex-direction: column;
+}
+
+.teacher{
+  margin-top: 10%;
+  border: solid $dark-blue;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  text-align: center
+}
+
+.properties{
+
+}
