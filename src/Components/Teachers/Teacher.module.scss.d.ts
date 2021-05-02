@@ -3,14 +3,15 @@
 interface CssExports {
   'best': string;
   'btn': string;
-  'chosen_letter': string;
   'content': string;
+  'fio': string;
   'greeting': string;
-  'hide': string;
-  'letter': string;
+  'letter_chosen': string;
+  'letter_not_chosen': string;
   'letters': string;
   'main_content': string;
-  'not_hide': string;
+  'persons': string;
+  'persons_hide': string;
   'teacher': string;
   'worst': string;
 }

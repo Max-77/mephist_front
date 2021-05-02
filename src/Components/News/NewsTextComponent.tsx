@@ -6,7 +6,6 @@ const NewsTextComponent: React.FC = ()=>{
     let [titles, setTitles] = useState([])
     let [news, setNews] = useState([])
     let [dates, setDates] = useState([])
-
     let [active, setActive] = useState(-1);
 
     const changeActive = (e, index) =>{
@@ -20,7 +19,8 @@ const NewsTextComponent: React.FC = ()=>{
 
     React.useEffect(()=>{
         getTitlesAndNews()
-    })
+        console.log('Method connection with db')
+    }, [])
 
     const getTitlesAndNews = () =>{
         fetch('/api/news')
