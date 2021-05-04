@@ -9,11 +9,11 @@ import {Router} from "./pages/Router"
 const App: React.FC = () => {
     return(
         <ReduxProvider store={store}>
-        <DarkThemeToggle/>
-        <DarkThemeProvider>
-            <Router/>
-        </DarkThemeProvider>
-    </ReduxProvider>
+            <DarkThemeToggle/>
+            <DarkThemeProvider>
+                <Router/>
+            </DarkThemeProvider>
+        </ReduxProvider>
     )
 };
 

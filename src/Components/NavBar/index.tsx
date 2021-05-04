@@ -21,6 +21,9 @@ const NavBar: React.FC<IProps> = (props: IProps) => {
                     <div><Link to={Routes.TEACHERS} className={s.btn}>
                {RoutesNames.TEACHERS}
                     </Link></div>
+                    <div><Link to={Routes.LOGIN} className={s.btn}>
+                        {RoutesNames.LOGIN}
+                    </Link></div>
                 </nav>
             </div>
         </div>

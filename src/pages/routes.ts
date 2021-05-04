@@ -1,13 +1,15 @@
 enum Routes {
     ROOT = '/',
     TEACHERS = '/teachers',
-    NEWS = '/news'
+    NEWS = '/news',
+    LOGIN = '/login'
 }
 
 export enum RoutesNames {
-    ROOT = 'Главная страницы',
+    ROOT = 'Главная страница',
     TEACHERS = 'Преподаватели',
-    NEWS = 'новости'
+    NEWS = 'Новости',
+    LOGIN = 'Вход/Регистрация'
 }
 
 export default Routes;

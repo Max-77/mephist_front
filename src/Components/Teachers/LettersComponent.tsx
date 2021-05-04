@@ -3,6 +3,7 @@ import s from "./Teacher.module.scss"
 import {useState} from "react";
 
 export interface Teacher{
+    id: number,
     name : string,
     surname : string,
     middlename : string,
@@ -24,17 +25,17 @@ const LettersComponent: React.FC =(props)=>{
         fetch('/api/teachers/'+lettersComponent[index])
             .then((res)=>res.json())
             .then((result)=>{
-                let teach : Teacher ={name:'', surname:'', middlename:'',character:0,quality:0,credits_exams:0};
+                let teach : Teacher ={id: 0,name:'', surname:'', middlename:'',character:0,quality:0,credits_exams:0};
                 let teach_arr = []
                 for (let i=0; i<result.length; i++){
                     teach = {
+                        id: result[i].id,
                         name:result[i].name,
                         surname: result[i].surname,
                         middlename: result[i].middlename,
                         character: result[i].character,
                         quality:result[i].quality,
                         credits_exams:result[i].credits_exams};
-                    console.log("---->", teach);
                     teach_arr.push(teach);
                 }
                 setTeachers(teach_arr);

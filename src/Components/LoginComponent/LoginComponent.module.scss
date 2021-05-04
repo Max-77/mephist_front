@@ -1,0 +1,46 @@
+@import "../../_variables";
+%base_setting{
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;}
+.content{
+  @extend %base_setting;
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+.register{
+  width: 45%;
+  margin-left: 2.5%;
+  margin-top: 2.5%;
+  text-align: center;
+  border-radius: 15px;
+  border: 2px solid $dark-blue;
+  height: 80%;
+}
+
+.greeting{
+  padding-top: 2.5%;
+}
+
+.around_inp{
+  margin-top: 10%;
+  opacity: 1;
+  border-radius: 15px;
+}
+.around_inp:hover{
+  background-color: $lightblue;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+.inp{
+  @extend %base_setting;
+  border-radius: 5%;
+  width: 30%;
+  height: 7%;
+  margin-top: 10%;
+}
+.inp:hover{
+  background-color: $lightblue;
+}

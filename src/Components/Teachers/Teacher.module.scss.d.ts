@@ -12,6 +12,9 @@ interface CssExports {
   'main_content': string;
   'persons': string;
   'persons_hide': string;
+  'review_hide': string;
+  'review_show': string;
+  'showHide': string;
   'teacher': string;
   'worst': string;
 }

@@ -12,7 +12,9 @@ const DarkThemeToggle = () => {
                 <input id={s.checkcross}
                        type="checkbox"
                        checked={darkThemeEnabled}
-                       onChange={() => dispatch({ type: TOGGLE_DARKTHEME })}/>
+                       onChange={() => dispatch({ type: TOGGLE_DARKTHEME })}
+                       className={s.invise_clicker}
+                />
                 <label className={s["toggle-item"]} htmlFor={s.checkcross}>
                 <div className={s.check}> </div>
                 </label>

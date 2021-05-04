@@ -56,7 +56,8 @@
   border-radius: 5px;
   display: flex;
   flex-direction: column;
-  text-align: center
+  text-align: center;
+  width: 400px;
 }
 
 a{ text-decoration: none; color: inherit;}
@@ -101,5 +102,24 @@ a:hover{text-decoration: none;}
   border: 1px solid $dark-blue;
   text-align: center;
   margin-top: 4px;
+  cursor: pointer;
+}
+
+%review{
+  margin: 10px;
+  border-radius: 5px;
+  border: 1px solid $dark-blue;
+}
+
+.review_show{
+  @extend %review
+}
+.review_hide{
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+.showHide{
+  @extend %review;
   cursor: pointer;
 }

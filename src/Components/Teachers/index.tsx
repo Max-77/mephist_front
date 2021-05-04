@@ -3,15 +3,16 @@ import s from "./Teacher.module.scss"
 import DarkThemeProvider from "../Themes/DarkThemeProvider";
 import LettersComponent from "./LettersComponent";
 import {Teacher} from './LettersComponent'
-import {useEffect} from "react";
+import TeacherIndividualComponent from './TeacherIndividualComponent'
+
 const TeachersComponent: React.FC = () =>{
-    let teach : Teacher ={name:'', surname:'', middlename:'',character:0,quality:0,credits_exams:0};
+    let teach : Teacher ={id: 0, name:'', surname:'', middlename:'',character:0,quality:0,credits_exams:0};
     const [teacher, setTeacher] = React.useState(teach);
 
     return(
     <DarkThemeProvider>
     <div>
-    <div className={s.greeting}>Welcome on the teachers page!</div>
+    <div className={s.greeting}>Добро пожаловать на страницу преподавателей!</div>
         <div className={s.main_content}>
             {/*@ts-ignore*/}
             <LettersComponent updateTeacher={setTeacher}/>
@@ -20,28 +21,15 @@ const TeachersComponent: React.FC = () =>{
                 <input type="text" placeholder="Start typo.." autoComplete="false" className={s.btn}/>
                 <input type="button" className={s.btn} value={"Find!"}/>
             </div>
-            <div className={s.teacher}>
-                {/*@ts-ignore*/}
-                <div>{teacher.surname===''?'Here will be teacher properties\n':teacher.surname}</div>
-                {/*@ts-ignore*/}
-                <div>{teacher.name}</div>
-                {/*@ts-ignore*/}
-                <div>{teacher.middlename}</div>
-                {/*@ts-ignore*/}
-                <div>{teacher.quality===0?'':'Качество преподавания: '+teacher.quality}</div>
-                {/*@ts-ignore*/}
-                <div>{teacher.character===0?'':'Характер: '+teacher.character}</div>
-                {/*@ts-ignore*/}
-                <div>{teacher.credits_exams===0?'':'Приём зачётов/экзаменов: '+teacher.credits_exams}</div>
-
-            </div>
+            {/*@ts-ignore*/}
+            <TeacherIndividualComponent teacher={teacher}/>
         </div>
         <div>
             <div className={s.best}>
-                /* Best Rated Teachers */
+                /* Лучшие преподаватели */
             </div>
             <div className={s.worst}>
-                /* Worst Rated Teachers */
+                /* Худшие преподаватели */
             </div>
         </div>
         </div>
