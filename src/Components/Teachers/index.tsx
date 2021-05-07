@@ -18,8 +18,8 @@ const TeachersComponent: React.FC = () =>{
             <LettersComponent updateTeacher={setTeacher}/>
         <div className={s.content}>
             <div>
-                <input type="text" placeholder="Start typo.." autoComplete="false" className={s.btn}/>
-                <input type="button" className={s.btn} value={"Find!"}/>
+                <input type="text" placeholder="Введите фамилию" autoComplete="false" className={s.btn}/>
+                <input type="button" className={s.btn} value={"Найти!"}/>
             </div>
             {/*@ts-ignore*/}
             <TeacherIndividualComponent teacher={teacher}/>

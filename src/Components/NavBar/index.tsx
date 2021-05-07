@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import * as React from 'react';
 import Routes, { RoutesNames } from '../../pages/routes';
-import DarkThemeProvider from "../Themes/DarkThemeProvider";
+
 interface IProps {
     name: string;
 }
