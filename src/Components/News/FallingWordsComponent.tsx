@@ -31,27 +31,29 @@ const FallingWordsComponent: React.FC = ()=>{
 
     React.useEffect(()=>{
         AOS.init({
+            offset: 150,
             delay: 250, // values from 0 to 3000, with step 50ms
             duration: 750, // values from 0 to 3000, with step 50ms
-            easing: 'ease-in-out', // default easing for AOS animations
+            easing: 'ease-out-in', // default easing for AOS animations
             once: false, // whether animation should happen only once - while scrolling down
             mirror: true, // whether elements should animate out while scrolling past them
+            anchorPlacement: 'top-bottom'
         });
     })
 
     return(
                  <div className={s.biggrid}>
                 {nrnuWords.map((value, index)=>(
-                    <Container key={index} index={index*80}>
-                        <div data-aos="fade-down" data-aos-delay="50">
+                    <Container key={index} index={index*100}>
+                        <div data-aos="fade-up" data-aos-delay="50">
                             {value}
                         </div>
                     </Container>
                 ))}
 
                 {mephiWords.map((value, index)=>(
-                    <Container2 key={index} index={index*80}>
-                        <div data-aos="fade-down" data-aos-delay="50">
+                    <Container2 key={index} index={index*110}>
+                        <div data-aos="fade-up" data-aos-delay="50">
                             {value}
                         </div>
                     </Container2>

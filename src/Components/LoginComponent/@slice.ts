@@ -31,3 +31,16 @@ export const useStyles = makeStyles((theme) => ({
 export interface IProps{
     type: string
 }
+
+export enum Index{
+    username,
+    password
+}
+
+export const errorArr = [
+    'Поля не могут быть пустыми',
+    'Пользователь с таким именем уже существует',
+    'Неверное имя пользователя или пароль',
+    'Пользователя с таким именем не существует',
+    'Непредвиденная ошибка',
+]

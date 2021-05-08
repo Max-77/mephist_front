@@ -6,6 +6,7 @@ interface IProps {
     name: string;
 }
 import s from './NavBar.module.scss'
+import authStore from "../../authStore/auth.store";
 
 const NavBar: React.FC<IProps> = (props: IProps) => {
     return (
@@ -21,9 +22,9 @@ const NavBar: React.FC<IProps> = (props: IProps) => {
                     <div><Link to={Routes.TEACHERS} className={s.btn}>
                {RoutesNames.TEACHERS}
                     </Link></div>
-                    <div><Link to={Routes.LOGIN} className={s.btn}>
+                    {authStore.getState().logged===''?<div><Link to={Routes.LOGIN} className={s.btn}>
                         {RoutesNames.LOGIN}
-                    </Link></div>
+                    </Link></div> : ''}
                 </nav>
             </div>
         </div>

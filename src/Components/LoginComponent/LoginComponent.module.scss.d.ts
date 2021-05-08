@@ -2,9 +2,20 @@
 // Please do not change this file!
 interface CssExports {
   'content': string;
+  'css-modalDialog': string;
+  'fadeIn': string;
+  'fadeOut': string;
   'fields': string;
   'greeting': string;
+  'modal': string;
+  'modalDialog': string;
+  'modalFadeOut': string;
+  'modalMain': string;
+  'name': string;
   'register': string;
+  'slideIn': string;
+  'slideOut': string;
+  'smalltext': string;
 }
 export const cssExports: CssExports;
 export default cssExports;
