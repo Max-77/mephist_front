@@ -22,7 +22,7 @@ const NavBar: React.FC<IProps> = (props: IProps) => {
                     <div><Link to={Routes.TEACHERS} className={s.btn}>
                {RoutesNames.TEACHERS}
                     </Link></div>
-                    {authStore.getState().logged===''?<div><Link to={Routes.LOGIN} className={s.btn}>
+                    {authStore.getState().logged.value==='false'||authStore.getState().logged===''?<div><Link to={Routes.LOGIN} className={s.btn}>
                         {RoutesNames.LOGIN}
                     </Link></div> : ''}
                 </nav>

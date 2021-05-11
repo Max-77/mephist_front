@@ -13,7 +13,7 @@ const FormComponent:React.FC<IProps> = ({type})=>{
     const [isEmpty, setIsEmpty] = React.useState(false);
     const [error, setError] = React.useState('');
 
-    const url = type==='register'?'http://localhost:8080/api/users/new':'http://localhost:8080/api/auth/login';
+    const url = type==='register'?'http://localhost:8080/api/auth/register':'http://localhost:8080/api/auth/login';
 
     const handleChange = (event, index)=>{
         setIsEmpty(false);
@@ -36,6 +36,9 @@ const FormComponent:React.FC<IProps> = ({type})=>{
                 break;
             case '400':
                 msg = errorArr[3];
+                break;
+            case '401':
+                msg = errorArr[1];
                 break;
             default:
                 msg = errorArr[4];
@@ -68,20 +71,20 @@ const FormComponent:React.FC<IProps> = ({type})=>{
                     setError('400');
                     return;
                 }
+                if (result.message==='User already exist'){
+                    setError('401');
+                    return;
+                }
                 if (result.statusCode) {
                     setError(result.statusCode);
                     return;
                 }
-                if (result.token){
-                    // save to store
-                    authStore.dispatch(action(result.token));
-                    history.pushState('','','/');
-                    window.location.reload();
-                    return;
-                }
             })
             .catch((err)=>{
-                console.log('successfully registered!');
+                authStore.dispatch(action('true'));
+                history.pushState('','','/');
+                window.location.reload();
+                return;
             })
     }
 
@@ -108,7 +111,8 @@ const FormComponent:React.FC<IProps> = ({type})=>{
                     value={password}
                     className ={classes.margin}
                     />
-                    {authStore.getState().logged===''?
+                    {authStore.getState().logged.value==='false'||
+                        authStore.getState().logged===''?
                         <Button variant="contained"
                                 color='primary'
                                 onClick={checkFields}>

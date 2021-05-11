@@ -5,7 +5,6 @@ import s from './LoginComponent.module.scss'
 const LoginComponent:React.FC = ()=>{
     return(
         <div className={s.content}>
-            <FormComponent type='register'/>
             <FormComponent type='login'/>
         </div>
     )

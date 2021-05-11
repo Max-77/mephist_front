@@ -33,7 +33,8 @@ const NewsTextComponent: React.FC = ()=>{
                 for (let i=0; i<countOfNews; i++){
                     titles.push(result[i].title)
                     news.push(result[i].text)
-                    dates.push(result[i].createdDate)
+                    let str = result[i].createdDate.replace(/T.*$/,'')
+                    dates.push(str)
                 }
                 setTitles(titles)
                 setNews(news)

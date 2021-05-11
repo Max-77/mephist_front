@@ -1,6 +1,8 @@
 import * as React from "react"
 import s from './Teacher.module.scss'
 import {useEffect, useState} from "react";
+import authStore from "../../authStore/auth.store";
+import WriteReviewComponent from "./WriteReviewComponent";
 
 //@ts-ignore
 const TeacherIndividualComponent : React.FC = ({teacher})=>{
@@ -44,6 +46,30 @@ const TeacherIndividualComponent : React.FC = ({teacher})=>{
         }
     })
 
+    const makeReview = ()=>{
+        return(<WriteReviewComponent teacher_id={teacher.id}/>)
+    }
+
+    const test = ()=>{
+        if (teacher.id === 0)
+            return;
+        return(<>
+            <div className={s.showHide}
+                 onClick={()=>showOrHideReviews(state.switch)}>
+                {toggle===0?'Показать':'Скрыть'} отзывы
+            </div>
+
+            {authStore.getState().logged.value!=='false'&&authStore.getState().logged!==''?
+                <div className={s.showHide}
+                     onClick={makeReview}>
+                    {/*<WriteReviewComponent teacher_id={teacher.id}/>*/}
+                    Написать отзыв
+                </div>:''}
+
+            </>
+        )
+    }
+
     return(
         <div className={s.teacher}>
             {/*@ts-ignore*/}
@@ -58,9 +84,8 @@ const TeacherIndividualComponent : React.FC = ({teacher})=>{
             <div>{teacher.character===0?'':'Характер: '+teacher.character}</div>
             {/*@ts-ignore*/}
             <div>{teacher.credits_exams===0?'':'Приём зачётов/экзаменов: '+teacher.credits_exams}</div>
-
             <div>
-                <div className={s.showHide} onClick={()=>showOrHideReviews(state.switch)}>{toggle===0?'Показать':'Скрыть'} отзывы</div>
+                {test()}
                 {review.map((value, index)=>(
                     <div key={index} className={toggle===0?s.review_hide:s.review_show}>
                         {value.text}

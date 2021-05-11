@@ -7,6 +7,7 @@ interface CssExports {
   'fadeOut': string;
   'fields': string;
   'greeting': string;
+  'logout': string;
   'modal': string;
   'modalDialog': string;
   'modalFadeOut': string;

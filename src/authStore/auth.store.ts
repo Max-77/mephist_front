@@ -6,7 +6,6 @@ const isLogged = localStorage.getItem(localStorageKey);
 let initialState = {
     logged : isLogged?JSON.parse(isLogged):''
 };
-
 const authStore = createStore(authReducer, initialState);
 
 authStore.subscribe(()=>{

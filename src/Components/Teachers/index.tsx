@@ -24,14 +24,14 @@ const TeachersComponent: React.FC = () =>{
             {/*@ts-ignore*/}
             <TeacherIndividualComponent teacher={teacher}/>
         </div>
-        <div>
-            <div className={s.best}>
-                /* Лучшие преподаватели */
-            </div>
-            <div className={s.worst}>
-                /* Худшие преподаватели */
-            </div>
-        </div>
+        {/*<div>*/}
+        {/*    <div className={s.best}>*/}
+        {/*        Лучшие преподаватели */}
+        {/*    </div>*/}
+        {/*    <div className={s.worst}>*/}
+        {/*        Худшие преподаватели */}
+        {/*    </div>*/}
+        {/*</div>*/}
         </div>
     </div>
     </DarkThemeProvider>)

@@ -11,8 +11,8 @@
 }
 
 .register{
-  width: 45%;
-  margin-left: 2.5%;
+  width: 40%;
+  margin-left: 30%;
   margin-top: 2.5%;
   text-align: center;
   border-radius: 15px;
@@ -28,7 +28,7 @@
   display: flex;
   flex-direction: column;
   align-content: center;
-  padding-left: 25%;
+  padding-left: 20%;
   padding-top: 5%;
 }
 
@@ -103,4 +103,8 @@
 
 .smalltext{
   font-size: 65%;
+}
+.logout{
+  padding-left: 47%;
+  height: 550px;
 }
