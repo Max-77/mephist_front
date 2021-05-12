@@ -1,9 +1,10 @@
 import * as React from "react"
 import {CssTextField, useStyles} from "../LoginComponent/@slice";
 import {useState} from "react";
-import {Button} from "@material-ui/core";
+import {Button, TextField} from "@material-ui/core";
 import ModalComponent from "../LoginComponent/ModalComponent";
-
+import {withCookies,Cookies} from 'react-cookie'
+import s from './Teacher.module.scss'
 interface IProps{
     teacher_id:number
 }
@@ -12,8 +13,9 @@ const WriteReviewComponent : React.FC<IProps> = ({teacher_id})=>{
     const classes = useStyles();
     const [review, setReview] = useState('')
     const [isEmpty, setIsEmpty] = useState(false)
-
+    const cookies= new Cookies;
     const handleChange = (event)=>{
+        console.log(cookies.get('jwt'))
         setIsEmpty(false)
         setReview(event.target.value);
     }
@@ -23,12 +25,15 @@ const WriteReviewComponent : React.FC<IProps> = ({teacher_id})=>{
             setIsEmpty(true);
             return;
         }
+        const str = 'Cookie';
+        console.log('---->', str);
         fetch('http://localhost:8080/api/review',{
             method:"POST",
             headers: {
                 "Content-Type": "application/json",
                 "Connection": "keep-alive",
-                "Accept": "*/*"
+                "Accept": "*/*",
+                // "Authorization": str
             },
             body: JSON.stringify({
                 'pos_rate':0,
@@ -50,19 +55,24 @@ const WriteReviewComponent : React.FC<IProps> = ({teacher_id})=>{
     return(
         <div>
             {isEmpty?<ModalComponent text={'Поля не могут быть пустыми'}/>:''}
-            <form method='POST' className={classes.root}>
-                <CssTextField id='review'
+            <div className={s.rate_teacher}>
+                <div className={s.rate_teacher_fields}>
+                    <CssTextField id='review'
                               variant='outlined'
                               value={review}
                               label="Your review"
                               onChange={(e)=>handleChange(e)}
-                              className={classes.margin}/>
-                    <Button variant="contained"
+                                  style={{width:'100%'}}
+                    /></div>
+                 <div className={s.rate_teacher_button}>
+                     <Button variant="contained"
                             color='primary'
-                            onClick={sendReview}>
-                        <p>Оставить отзыв</p>
+                             style={{maxHeight:"30px", maxWidth:'75px'}}
+                             onClick={sendReview}>
+                        Готово
                     </Button>
-                </form>
+                 </div>
+                 </div>
         </div>
     )
 }

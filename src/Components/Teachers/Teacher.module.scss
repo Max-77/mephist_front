@@ -123,3 +123,25 @@ a:hover{text-decoration: none;}
   @extend %review;
   cursor: pointer;
 }
+.bur_rev{
+  padding-left: 27%;
+}
+.field_rev{
+  padding-left: 13%;
+}
+
+.rate_teacher{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+.rate_teacher_fields{
+  width:50%;
+  padding-top: 10px;
+  padding-left: 25%;
+}
+.rate_teacher_button{
+  padding-top: 10px;
+  height: 30px;
+  margin-bottom: 10px;
+}

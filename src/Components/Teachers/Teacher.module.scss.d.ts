@@ -3,7 +3,9 @@
 interface CssExports {
   'best': string;
   'btn': string;
+  'bur_rev': string;
   'content': string;
+  'field_rev': string;
   'fio': string;
   'greeting': string;
   'letter_chosen': string;
@@ -12,6 +14,9 @@ interface CssExports {
   'main_content': string;
   'persons': string;
   'persons_hide': string;
+  'rate_teacher': string;
+  'rate_teacher_button': string;
+  'rate_teacher_fields': string;
   'review_hide': string;
   'review_show': string;
   'showHide': string;

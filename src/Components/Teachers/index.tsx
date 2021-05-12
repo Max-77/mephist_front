@@ -17,10 +17,10 @@ const TeachersComponent: React.FC = () =>{
             {/*@ts-ignore*/}
             <LettersComponent updateTeacher={setTeacher}/>
         <div className={s.content}>
-            <div>
-                <input type="text" placeholder="Введите фамилию" autoComplete="false" className={s.btn}/>
-                <input type="button" className={s.btn} value={"Найти!"}/>
-            </div>
+            {/*<div>*/}
+            {/*    <input type="text" placeholder="Введите фамилию" autoComplete="false" className={s.btn}/>*/}
+            {/*    <input type="button" className={s.btn} value={"Найти!"}/>*/}
+            {/*</div>*/}
             {/*@ts-ignore*/}
             <TeacherIndividualComponent teacher={teacher}/>
         </div>
