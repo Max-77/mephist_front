@@ -44,8 +44,8 @@ const ModalComponent:React.FC<Message> = ({text})=>{
                     tabIndex={-1}
                     role="dialog"
                     aria-labelledby="exampleModalLabel"
-                    aria-hidden="true"
-                >
+                    aria-hidden="true">
+
                     <div id="modal-dialog" role="document" className={s.modalDialog}>
                             <div className={s.modal}>
                                 <div>{text}</div>

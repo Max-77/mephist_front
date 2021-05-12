@@ -51,9 +51,11 @@ const TeacherIndividualComponent : React.FC = ({teacher})=>{
         if (teacher.id === 0)
             return;
         return(<>
-                <RateTeacher teacher_id={teacher.id}/>
+                {authStore.getState().logged.value!=='false'&&authStore.getState().logged!==''?
+                            <RateTeacher teacher_id={teacher.id}/>
+                    :''}
 
-            {authStore.getState().logged.value!=='false'&&authStore.getState().logged!==''?
+                {authStore.getState().logged.value!=='false'&&authStore.getState().logged!==''?
                 <div className={s.showHide}>
                     Написать отзыв
                     <div>

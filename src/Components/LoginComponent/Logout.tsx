@@ -20,7 +20,6 @@ const LogoutComponent:React.FC = ()=>{
         })
             .then((res)=>res.json())
             .then((result)=>{
-
             })
             .catch((err)=>{
                 authStore.dispatch(action('false'));

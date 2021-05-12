@@ -1,21 +1,16 @@
 import * as React from "react"
-import {CssTextField, useStyles} from "../LoginComponent/@slice";
+import {CssTextField} from "../LoginComponent/@slice";
 import {useState} from "react";
-import {Button, TextField} from "@material-ui/core";
+import {Button} from "@material-ui/core";
 import ModalComponent from "../LoginComponent/ModalComponent";
-import {withCookies,Cookies} from 'react-cookie'
 import s from './Teacher.module.scss'
-interface IProps{
-    teacher_id:number
-}
+import {IProps} from './config'
 
 const WriteReviewComponent : React.FC<IProps> = ({teacher_id})=>{
-    const classes = useStyles();
     const [review, setReview] = useState('')
     const [isEmpty, setIsEmpty] = useState(false)
-    const cookies= new Cookies;
+
     const handleChange = (event)=>{
-        console.log(cookies.get('jwt'))
         setIsEmpty(false)
         setReview(event.target.value);
     }
@@ -25,15 +20,12 @@ const WriteReviewComponent : React.FC<IProps> = ({teacher_id})=>{
             setIsEmpty(true);
             return;
         }
-        const str = 'Cookie';
-        console.log('---->', str);
         fetch('http://localhost:8080/api/review',{
             method:"POST",
             headers: {
                 "Content-Type": "application/json",
                 "Connection": "keep-alive",
                 "Accept": "*/*",
-                // "Authorization": str
             },
             body: JSON.stringify({
                 'pos_rate':0,
@@ -44,10 +36,8 @@ const WriteReviewComponent : React.FC<IProps> = ({teacher_id})=>{
         })
             .then((res)=>res.json())
             .then((result)=>{
-
             })
             .catch((err)=>{
-
                 return;
             })
     }
@@ -62,17 +52,17 @@ const WriteReviewComponent : React.FC<IProps> = ({teacher_id})=>{
                               value={review}
                               label="Your review"
                               onChange={(e)=>handleChange(e)}
-                                  style={{width:'100%'}}
+                              style={{width:'100%'}}
                     /></div>
-                 <div className={s.rate_teacher_button}>
+                <div className={s.rate_teacher_button}>
                      <Button variant="contained"
                             color='primary'
                              style={{maxHeight:"30px", maxWidth:'75px'}}
                              onClick={sendReview}>
                         Готово
-                    </Button>
-                 </div>
-                 </div>
+                     </Button>
+                </div>
+            </div>
         </div>
     )
 }

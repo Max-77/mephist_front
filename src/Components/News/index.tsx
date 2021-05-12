@@ -11,7 +11,7 @@ const NewsComponent: React.FC = ()=>{
             <div className={s.biggrid}>
                 <FallingWordsComponent/>
                 <div className={s.grid}>
-                <div className={s.greeting}>Welcome on the news page! Click on title to read a full news!</div>
+                <div className={s.greeting}>Добро пожаловать на страницу новостей. Кликните по заголовку, чтобы прочитать новость целиком!</div>
                <NewsTextComponent/>
             </div>
         </div>

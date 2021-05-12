@@ -75,5 +75,4 @@ const LettersComponent: React.FC =(props)=>{
     )
 }
 
-
 export default LettersComponent

@@ -8,12 +8,15 @@ import action from "../../authStore/actionCreator";
 
 const FormComponent:React.FC<IProps> = ({type})=>{
     const classes = useStyles();
+
     const [username, setUsername] = React.useState('');
     const [password, setPassword] = React.useState('');
     const [isEmpty, setIsEmpty] = React.useState(false);
     const [error, setError] = React.useState('');
 
-    const url = type==='register'?'http://localhost:8080/api/auth/register':'http://localhost:8080/api/auth/login';
+    const url = type==='register'?
+        'http://localhost:8080/api/auth/register':
+        'http://localhost:8080/api/auth/login';
 
     const handleChange = (event, index)=>{
         setIsEmpty(false);
@@ -93,24 +96,26 @@ const FormComponent:React.FC<IProps> = ({type})=>{
             <div className={s.greeting}>
                 {type==='register'?<p>Регистрация</p>:<p>Вход</p>}
             </div>
+
             {isEmpty?<ModalComponent text={'Поля не могут быть пустыми'}/>:''}
             {error?handleError(error):''}
+
             <form method="POST" className={classes.root}>
                 <div className={s.fields}>
-                <CssTextField id='username'
-                    variant='outlined'
-                    value={username}
-                    label="Username"
-                    onChange={(e)=>handleChange(e, Index.username)}
-                    className={classes.margin}/>
-                <CssTextField id="standard-password-input"
-                    label="Password"
-                    type="password"
-                    variant='outlined'
-                    onChange={(e)=>handleChange(e, Index.password)}
-                    value={password}
-                    className ={classes.margin}
-                    />
+                    <CssTextField id='username'
+                        variant='outlined'
+                        value={username}
+                        label="Username"
+                        onChange={(e)=>handleChange(e, Index.username)}
+                        className={classes.margin}/>
+                    <CssTextField id="standard-password-input"
+                        label="Password"
+                        type="password"
+                        variant='outlined'
+                        onChange={(e)=>handleChange(e, Index.password)}
+                        value={password}
+                        className ={classes.margin}/>
+
                     {authStore.getState().logged.value==='false'||
                         authStore.getState().logged===''?
                         <Button variant="contained"

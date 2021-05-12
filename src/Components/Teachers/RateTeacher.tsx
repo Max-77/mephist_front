@@ -48,61 +48,60 @@ const RateTeacher : React.FC<IProps> = ({teacher_id})=>{
             <div className={s.rate_teacher}>
             Оценить учителя
                 <div className={s.rate_teacher_fields}>
-            <TextField id='character'
-                       select
-                       label='Характер'
-                       value={character}
-                       style={{width:'100%'}}
-                       SelectProps={{
-                           native: true,
-                       }}
-                       onChange={(e)=>handleChange(e,Index.character)}>
-                {ratings.map((option)=>(
-                    <option key={option.value} value={option.value}>
-                        {option.label}
-                    </option>
-                ))}
-            </TextField>
+                    <TextField id='character'
+                        select
+                        label='Характер'
+                        value={character}
+                        style={{width:'100%'}}
+                        SelectProps={{
+                            native: true,
+                        }}
+                        onChange={(e)=>handleChange(e,Index.character)}>
+                            {ratings.map((option)=>(
+                            <option key={option.value} value={option.value}>
+                                {option.label}
+                            </option>
+                            ))}
+                    </TextField>
                 </div>
                 <div className={s.rate_teacher_fields}>
-            <TextField id='quality'
-                       select
-                       label='Качество преподавания'
-                       value={quality}
-                           SelectProps={{
-                               native: true,
-                           }}
-                       style={{width:'100%'}}
-                       onChange={(e)=>handleChange(e,Index.quality)}>
-                    {ratings.map((option)=>(
-                        <option key={option.value} value={option.value}>
-                            {option.label}
-                        </option>
-                    ))}
-            </TextField>
+                    <TextField id='quality'
+                        select
+                        label='Качество преподавания'
+                        value={quality}
+                            SelectProps={{
+                                native: true,
+                            }}
+                        style={{width:'100%'}}
+                        onChange={(e)=>handleChange(e,Index.quality)}>
+                            {ratings.map((option)=>(
+                            <option key={option.value} value={option.value}>
+                                {option.label}
+                            </option>
+                            ))}
+                    </TextField>
                 </div>
                 <div className={s.rate_teacher_fields}>
-            <TextField id='credits_exams'
-                       select label='Приём зачётов/экзаменов'
-                       value={credits_exams}
-                       SelectProps={{
-                           native: true,
-                       }}
-                       style={{width:'100%'}}
-                       onChange={(e)=>handleChange(e,Index.credits_exams)}>
-                {ratings.map((option)=>(
-                    <option key={option.value} value={option.value}>
-                        {option.label}
-                    </option>
-                ))}
-            </TextField>
+                    <TextField id='credits_exams'
+                        select label='Приём зачётов/экзаменов'
+                        value={credits_exams}
+                        SelectProps={{
+                            native: true,
+                        }}
+                        style={{width:'100%'}}
+                        onChange={(e)=>handleChange(e,Index.credits_exams)}>
+                            {ratings.map((option)=>(
+                            <option key={option.value} value={option.value}>
+                                {option.label}
+                            </option>
+                            ))}
+                    </TextField>
                 </div>
                 <div className={s.rate_teacher_button}>
                 <Button variant="contained"
                         color='primary'
                         style={{maxHeight:"30px", maxWidth:'75px'}}
-                        onClick={rate}
-                        >
+                        onClick={rate}>
                     <p>Оценить</p>
                 </Button>
                 </div>
