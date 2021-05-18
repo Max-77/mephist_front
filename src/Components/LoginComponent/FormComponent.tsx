@@ -2,9 +2,9 @@ import * as React from "react"
 import s from './LoginComponent.module.scss'
 import {Button} from "@material-ui/core";
 import {CssTextField, useStyles, IProps, Index, errorArr} from "./@slice";
-import ModalComponent from "./ModalComponent";
+import ModalComponent from "../ModalComponent/ModalComponent";
 import authStore from "../../authStore/auth.store";
-import action from "../../authStore/actionCreator";
+import {LOGIN_LOGOUT} from "../../authStore/actionCreator";
 
 const FormComponent:React.FC<IProps> = ({type})=>{
     const classes = useStyles();
@@ -56,6 +56,7 @@ const FormComponent:React.FC<IProps> = ({type})=>{
             setIsEmpty(true);
             return;
         }
+
         fetch(url,{
             method:"POST",
             headers: {
@@ -70,6 +71,13 @@ const FormComponent:React.FC<IProps> = ({type})=>{
         })
             .then((res)=>res.json())
             .then((result)=>{
+                if (result.id){
+                    authStore.dispatch(LOGIN_LOGOUT('true'));
+                    localStorage.setItem("id", result.id);
+                    history.pushState('','','/');
+                    window.location.reload();
+                    return;
+                }
                 if (result.message==='User does not exist'){
                     setError('400');
                     return;
@@ -84,9 +92,7 @@ const FormComponent:React.FC<IProps> = ({type})=>{
                 }
             })
             .catch((err)=>{
-                authStore.dispatch(action('true'));
-                history.pushState('','','/');
-                window.location.reload();
+                setError('13');
                 return;
             })
     }

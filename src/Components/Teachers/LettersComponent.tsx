@@ -28,14 +28,16 @@ const LettersComponent: React.FC =(props)=>{
                 let teach : Teacher ={id: 0,name:'', surname:'', middlename:'',character:0,quality:0,credits_exams:0};
                 let teach_arr = []
                 for (let i=0; i<result.length; i++){
+                    let num_of_votes;
+                    result[i].rate_count ===0? num_of_votes=1 :num_of_votes=result[i].rate_count
                     teach = {
                         id: result[i].id,
                         name:result[i].name,
                         surname: result[i].surname,
                         middlename: result[i].middlename,
-                        character: result[i].character,
-                        quality:result[i].quality,
-                        credits_exams:result[i].credits_exams};
+                        character: Math.floor(100*(result[i].character/num_of_votes))/100,
+                        quality: Math.floor(100*(result[i].quality/num_of_votes))/100,
+                        credits_exams: Math.floor(100*(result[i].credits_exams/num_of_votes))/100};
                     teach_arr.push(teach);
                 }
                 setTeachers(teach_arr);

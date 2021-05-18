@@ -19,7 +19,6 @@ const NewsTextComponent: React.FC = ()=>{
 
     React.useEffect(()=>{
         getTitlesAndNews()
-        console.log('Method connection with db')
     }, [])
 
     const getTitlesAndNews = () =>{

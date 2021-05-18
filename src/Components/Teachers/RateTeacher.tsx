@@ -2,34 +2,46 @@ import * as React from "react"
 import s from './Teacher.module.scss'
 import {useState} from "react";
 import {Button, TextField} from "@material-ui/core";
-import {Index, IProps, ratings} from "./config";
-
+import {headers, Index, IProps, ratings} from "./config";
+import ModalComponent from "../ModalComponent/ModalComponent";
 
 const RateTeacher : React.FC<IProps> = ({teacher_id})=>{
-    const [isRate, setIsRate] = useState(false)
+
+    const [error, setError] = useState('')
     const [character, setCharacter] = useState(0);
     const [quality, setQuality] = useState(0);
     const [credits_exams, setCredits_exams] = useState(0);
 
     const rate = ()=>{
-        setIsRate(true);
         fetch('http://localhost:8080/api/teacher-rate',{
             method:"POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Connection": "keep-alive",
-                "Accept": "*/*",
-            },
+            headers: headers,
             body: JSON.stringify({
-                'character':character,
-                'quality':quality,
-                'credits_exams': credits_exams,
                 'teacher_id': teacher_id,
+                'character': Number(character),
+                'quality': Number(quality),
+                'credits_exams': Number(credits_exams)
             })
         })
+            .then((res)=>res.json())
+            .then((result)=>{
+                if(result.statusCode === 400) {
+                    setError('Оценка не может содержать 0')
+                    return
+                }
+                if (result.message ==='Rate already exist') {
+                    setError('Вы уже проголосовали')
+                    return
+                }
+                setError('Unhandled error' + result.message);
+            })
+            .catch(()=>{
+                window.location.reload();
+            })
     }
 
     const handleChange = (e, index)=>{
+        setError('');
         switch (index) {
             case Index.character:
                 setCharacter(e.target.value)
@@ -45,6 +57,7 @@ const RateTeacher : React.FC<IProps> = ({teacher_id})=>{
 
     return(
         <div className={s.showHide}>
+            {error===''?'':<ModalComponent text={error}/>}
             <div className={s.rate_teacher}>
             Оценить учителя
                 <div className={s.rate_teacher_fields}>

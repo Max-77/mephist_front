@@ -3,7 +3,7 @@ import s from './LoginComponent.module.scss'
 import {Button} from "@material-ui/core";
 import {useStyles} from "./@slice";
 import authStore from "../../authStore/auth.store";
-import action from "../../authStore/actionCreator";
+import {LOGIN_LOGOUT} from "../../authStore/actionCreator";
 
 const LogoutComponent:React.FC = ()=>{
     const classes = useStyles();
@@ -22,7 +22,7 @@ const LogoutComponent:React.FC = ()=>{
             .then((result)=>{
             })
             .catch((err)=>{
-                authStore.dispatch(action('false'));
+                authStore.dispatch(LOGIN_LOGOUT('false'));
                 history.pushState('','','/');
                 window.location.reload();
                 return;

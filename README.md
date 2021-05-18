@@ -8,4 +8,5 @@
 >- `0.0.7` Reviews, registration, login.
 >- `0.0.8` Redesigned forms, working fetch
 >- `0.0.9` JWT authentication is working (redux store, localStorage)
->- `0.0.10` - `0.0.11` Minor improvments
+>- `0.0.10` - `0.0.11` Minor improvements
+>- `0.0.12` Fixed bugs, minor improvements

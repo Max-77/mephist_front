@@ -1,7 +1,6 @@
-const action=(value)=>{
+export const LOGIN_LOGOUT=(value)=>{
     return{
-        type: 'LOGGED',
+        type: 'LOGIN_LOGOUT',
         value_login: value
     }
 }
-export default action
