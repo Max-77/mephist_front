@@ -15,8 +15,8 @@ const FormComponent:React.FC<IProps> = ({type})=>{
     const [error, setError] = React.useState('');
 
     const url = type==='register'?
-        'http://localhost:8080/api/auth/register':
-        'http://localhost:8080/api/auth/login';
+        '/api/auth/register':
+        '/api/auth/login';
 
     const handleChange = (event, index)=>{
         setIsEmpty(false);

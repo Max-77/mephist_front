@@ -9,18 +9,18 @@ const TeachersComponent: React.FC = () =>{
     const [teacher, setTeacher] = React.useState(teach);
 
     return(
-    <DarkThemeProvider>
-    <div>
-    <div className={s.greeting}>Добро пожаловать на страницу преподавателей!</div>
-        <div className={s.main_content}>
-            {/*@ts-ignore*/}
-            <LettersComponent updateTeacher={setTeacher}/>
-            <div className={s.content}>
-                {/*@ts-ignore*/}
-                <TeacherIndividualComponent teacher={teacher}/>
+        <DarkThemeProvider>
+            <div>
+                <div className={s.greeting}>Добро пожаловать на страницу преподавателей!</div>
+                <div className={s.main_content}>
+                    {/*@ts-ignore*/}
+                    <LettersComponent updateTeacher={setTeacher}/>
+                    <div className={s.content}>
+                        {/*@ts-ignore*/}
+                        <TeacherIndividualComponent teacher={teacher}/>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    </DarkThemeProvider>)
+        </DarkThemeProvider>)
 }
 export default TeachersComponent

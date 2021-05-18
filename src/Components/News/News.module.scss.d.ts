@@ -9,6 +9,7 @@ interface CssExports {
   'news_text_shown': string;
   'news_title_chosen': string;
   'news_title_unchosen': string;
+  'textfields': string;
 }
 export const cssExports: CssExports;
 export default cssExports;

@@ -71,13 +71,13 @@ const TeacherIndividualComponent : React.FC = ({teacher})=>{
 
     const showTeacherParam = () =>{
         return(
-            <><div>{teacher.surname}</div>
+            <div className={s.data}><div>{teacher.surname}</div>
             <div>{teacher.name}</div>
             <div>{teacher.middlename}</div>
             <div>{'Качество преподавания: '+teacher.quality}</div>
             <div>{'Характер: '+teacher.character}</div>
             <div>{'Приём зачётов/экзаменов: '+teacher.credits_exams}</div>
-            </>)
+            </div>)
     }
 
     const rateReview = (rating, review_id) =>{
@@ -96,7 +96,6 @@ const TeacherIndividualComponent : React.FC = ({teacher})=>{
                     return;
                 }
                 setError(result.message);
-
             })
     }
 

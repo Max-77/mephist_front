@@ -1,0 +1,15 @@
+version: '3.3'
+
+services:
+  mephist-front:
+    container_name: mephist-front
+    image: nginx:1.19.9-alpine
+    volumes:
+      - ./dist:/var/project/dist
+      - ./Docker/nginx:/etc/nginx/conf.d
+    restart: always
+
+networks:
+  default:
+    external:
+      name: sample

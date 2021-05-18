@@ -22,6 +22,8 @@ const LogoutComponent:React.FC = ()=>{
             .then((result)=>{
             })
             .catch((err)=>{
+                localStorage.removeItem('id');
+                localStorage.removeItem('role');
                 authStore.dispatch(LOGIN_LOGOUT('false'));
                 history.pushState('','','/');
                 window.location.reload();
