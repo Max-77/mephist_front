@@ -6,7 +6,7 @@ import {headers, Index, IProps, ratings} from "./config";
 import ModalComponent from "../ModalComponent/ModalComponent";
 
 const RateTeacher : React.FC<IProps> = ({teacher_id})=>{
-
+    const [i,setI]=useState(0)
     const [error, setError] = useState('')
     const [character, setCharacter] = useState(0);
     const [quality, setQuality] = useState(0);
@@ -31,6 +31,7 @@ const RateTeacher : React.FC<IProps> = ({teacher_id})=>{
                 }
                 if (result.message ==='Rate already exist') {
                     setError('Вы уже проголосовали')
+                    window.location.reload();
                     return
                 }
                 setError('Unhandled error' + result.message);
@@ -54,10 +55,9 @@ const RateTeacher : React.FC<IProps> = ({teacher_id})=>{
                 break
         }
     }
-
     return(
         <div className={s.showHide}>
-            {error===''?'':<ModalComponent text={error}/>}
+            {error===''?'':<><ModalComponent text={error}/></>}
             <div className={s.rate_teacher}>
             Оценить учителя
                 <div className={s.rate_teacher_fields}>
