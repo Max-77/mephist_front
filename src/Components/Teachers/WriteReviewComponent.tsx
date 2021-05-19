@@ -34,7 +34,7 @@ const WriteReviewComponent : React.FC<IProps> = ({teacher_id})=>{
             .then((result)=>{
             })
             .catch((err)=>{
-                console.log('succes')
+                window.location.reload();
                 setIsWroten(true);
                 return;
             })
@@ -43,7 +43,7 @@ const WriteReviewComponent : React.FC<IProps> = ({teacher_id})=>{
     return(
         <div>
             {isEmpty?<ModalComponent text={'Поля не могут быть пустыми'}/>:''}
-            {!isWroten?<><div className={s.rate_teacher}>
+            <div className={s.rate_teacher}>
                 <div className={s.rate_teacher_fields}>
                     <CssTextField id='review'
                                   variant='outlined'
@@ -60,7 +60,7 @@ const WriteReviewComponent : React.FC<IProps> = ({teacher_id})=>{
                         Готово
                     </Button>
                 </div>
-            </div></>:'Вы уже оставили отзыв'}
+            </div>
         </div>
     )
 }

@@ -3,6 +3,11 @@ import s from "./Root.module.scss"
 import "animate.css/animate.min.css";
 import {useEffect, useState} from "react";
 import {role} from './config'
+import DarkThemeProvider from "../Themes/DarkThemeProvider";
+import authStore from "../../authStore/auth.store";
+import FormComponent from "../LoginComponent/FormComponent";
+import LogoutComponent from "../LoginComponent/Logout";
+import AdminComponent from "../AdminComponent";
 
 const RootComp: React.FC = () =>{
     const [msg, setMsg] = useState('');
@@ -40,8 +45,16 @@ const RootComp: React.FC = () =>{
             })
     })
 
-    return(<div className={s.root}>
+    return(
+        <DarkThemeProvider>
+        <div className={s.root}>
         {msg} Добро пожаловать на главную страницу!
-    </div>)
+            {authStore.getState().logged.value==='false'||authStore.getState().logged===''?<FormComponent type='register'/>:
+                <>
+                    <LogoutComponent/>
+                    <AdminComponent/>
+                </>}
+        </div>
+        </DarkThemeProvider>)
 }
 export default RootComp

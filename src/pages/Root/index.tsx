@@ -9,13 +9,6 @@ import AdminComponent from "../../Components/AdminComponent";
 export const Root: React.FC = () => (
     <div>
         <NavBar name={'Главная страница'}/>
-        <div>
             <RootComp/>
-            {authStore.getState().logged.value==='false'||authStore.getState().logged===''?<FormComponent type='register'/>:
-                <>
-                    <LogoutComponent/>
-                    <AdminComponent/>
-                </>}
-        </div>
     </div>
 )
