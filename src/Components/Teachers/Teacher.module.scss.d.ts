@@ -20,6 +20,7 @@ interface CssExports {
   'review_show': string;
   'showHide': string;
   'teacher': string;
+  'textfields': string;
 }
 export const cssExports: CssExports;
 export default cssExports;

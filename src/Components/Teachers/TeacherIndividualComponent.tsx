@@ -6,6 +6,7 @@ import WriteReviewComponent from "./WriteReviewComponent";
 import RateTeacher from "./RateTeacher";
 import {dislike, headers, like, rate_type, state} from "./config";
 import ModalComponent from "../ModalComponent/ModalComponent";
+import CreateTeacher from "./CreateTeacher";
 
 //@ts-ignore
 const TeacherIndividualComponent : React.FC = ({teacher})=>{
@@ -71,7 +72,7 @@ const TeacherIndividualComponent : React.FC = ({teacher})=>{
 
     const showTeacherParam = () =>{
         return(
-            <div className={s.data}><div>{teacher.surname}</div>
+            <div><div>{teacher.surname}</div>
             <div>{teacher.name}</div>
             <div>{teacher.middlename}</div>
             <div>{'Качество преподавания: '+teacher.quality}</div>
@@ -101,6 +102,7 @@ const TeacherIndividualComponent : React.FC = ({teacher})=>{
 
     return(
         <div className={s.teacher}>
+            <CreateTeacher/>
             <div>{teacher.surname===''?'Выберите преподавателя, чтобы посмотреть отзывы и характеристики\n': showTeacherParam()}</div>
             <div>
                 {rateAndReview()}

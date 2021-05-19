@@ -50,7 +50,7 @@ const NewsTextComponent: React.FC = ()=>{
 
     const checkIfEditor = () =>{
         const curr_role = localStorage.getItem('role');
-        return curr_role === role.admin || curr_role === role.editor;
+        return curr_role === role.editor;
     }
 
     const removeNews = (id) =>{
@@ -60,12 +60,12 @@ const NewsTextComponent: React.FC = ()=>{
             body: JSON.stringify({
             })
         })
-            .then((res)=>res.json)
+            .then((res)=>res.json())
             .then((result)=>{
-                console.log(result);
+                window.location.reload();
             })
             .catch((err)=>{
-                console.log(err);
+                window.location.reload();
             })
     }
 

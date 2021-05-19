@@ -23,19 +23,13 @@
   flex-direction: column;
 }
 
-//.btn{
-//  @extend %base_setting;
-//  border-radius: 13px;
-//  opacity: 1;
-//}
-//.btn:hover{background-color: $lightblue}
-
 .teacher{
-  margin-left: 30%;
   border: 2px solid $dark-blue;
   border-radius: 5px;
   text-align: center;
-  width: 60%;
+  width: 55%;
+  margin-right: 5%;
+  height: 10%;
 }
 
 a{ text-decoration: none; color: inherit;}
@@ -125,5 +119,9 @@ a:hover{text-decoration: none;}
 }
 
 .data{
-  width:inherit;
+  width:100%;
+}
+
+.textfields{
+  padding-top: 20px;
 }

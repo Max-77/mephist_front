@@ -15,10 +15,8 @@ const TeachersComponent: React.FC = () =>{
                 <div className={s.main_content}>
                     {/*@ts-ignore*/}
                     <LettersComponent updateTeacher={setTeacher}/>
-                    <div className={s.content}>
                         {/*@ts-ignore*/}
-                        <TeacherIndividualComponent teacher={teacher}/>
-                    </div>
+                    <TeacherIndividualComponent teacher={teacher}/>
                 </div>
             </div>
         </DarkThemeProvider>)

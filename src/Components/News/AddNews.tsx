@@ -14,7 +14,7 @@ const AddNews: React.FC = ()=>{
 
     const checkIfEditor = () =>{
         const curr_role = localStorage.getItem('role');
-        return curr_role === role.admin || curr_role === role.editor;
+        return curr_role === role.editor;
     }
 
     const handleChange =(e,type)=>{
@@ -38,12 +38,15 @@ const AddNews: React.FC = ()=>{
                 'text': text
             })
         })
-            .then((res)=>res.json)
+            .then((res)=>res.json())
             .then((result)=>{
-                console.log(result);
+                if (result.message === 'Unauthorized'){
+                    setError('Вы не редактор')
+                }
+                window.location.reload();
             })
             .catch((err)=>{
-                console.log(err);
+                window.location.reload();
             })
     }
 
