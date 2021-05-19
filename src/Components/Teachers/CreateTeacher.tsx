@@ -59,7 +59,7 @@ const CreateTeacher : React.FC = ()=>{
 
     return(
         <div>
-            {checkIfEditor()?<div>
+            {checkIfEditor()?<div className={s.around_textfields}>
                 {error===''?'':<ModalComponent text={error}/>}
                 Вы можете создать преподавателя
                 <div className={s.textfields}><CssTextField id='name'

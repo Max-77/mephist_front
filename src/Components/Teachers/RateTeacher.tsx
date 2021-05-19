@@ -13,7 +13,7 @@ const RateTeacher : React.FC<IProps> = ({teacher_id})=>{
     const [credits_exams, setCredits_exams] = useState(0);
 
     const rate = ()=>{
-        fetch('http://localhost:8080/api/teacher-rate',{
+        fetch('/api/teacher-rate',{
             method:"POST",
             headers: headers,
             body: JSON.stringify({

@@ -11,3 +11,4 @@
 >- `0.0.10` - `0.0.11` Minor improvements
 >- `0.0.12` Fixed bugs, minor improvements
 >- `0.0.13` - Little redesign, fixed bugs, roles separation
+>- `0.0.14` - Admin panel.

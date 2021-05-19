@@ -4,13 +4,18 @@ import RootComp from "../../Components/RootComponents/index"
 import FormComponent from "../../Components/LoginComponent/FormComponent";
 import authStore from "../../authStore/auth.store";
 import LogoutComponent from "../../Components/LoginComponent/Logout";
+import AdminComponent from "../../Components/AdminComponent";
 
 export const Root: React.FC = () => (
     <div>
         <NavBar name={'Главная страница'}/>
         <div>
             <RootComp/>
-            {authStore.getState().logged.value==='false'||authStore.getState().logged===''?<FormComponent type='register'/>:<><LogoutComponent/></>}
+            {authStore.getState().logged.value==='false'||authStore.getState().logged===''?<FormComponent type='register'/>:
+                <>
+                    <LogoutComponent/>
+                    <AdminComponent/>
+                </>}
         </div>
     </div>
 )

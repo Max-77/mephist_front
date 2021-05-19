@@ -20,7 +20,7 @@ const WriteReviewComponent : React.FC<IProps> = ({teacher_id})=>{
             setIsEmpty(true);
             return;
         }
-        fetch('http://localhost:8080/api/review',{
+        fetch('/api/review',{
             method:"POST",
             headers: headers,
             body: JSON.stringify({

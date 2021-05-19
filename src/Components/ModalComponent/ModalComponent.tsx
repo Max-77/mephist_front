@@ -1,8 +1,8 @@
 import * as React from 'react'
 import usePortal from 'react-cool-portal'
 import {useState} from "react";
-// import s from '../LoginComponent/LoginComponent.module.scss'
 import s from './ModalComponent.module.scss'
+
 interface Message{
     text: string,
 }

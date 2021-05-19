@@ -1,6 +1,7 @@
 import * as React from "react"
 import s from "./Teacher.module.scss"
 import {useState} from "react";
+import DeleteTeacher from "./DeleteTeacher";
 
 export interface Teacher{
     id: number,
@@ -68,6 +69,7 @@ const LettersComponent: React.FC =(props)=>{
                             {person.surname} &#32;
                             {person.name} &#32;
                             {person.middlename}
+                            <DeleteTeacher id={person.id}/>
                         </div>
                     ))}
                     </div>

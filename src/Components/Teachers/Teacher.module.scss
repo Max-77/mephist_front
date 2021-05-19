@@ -29,7 +29,7 @@
   text-align: center;
   width: 55%;
   margin-right: 5%;
-  height: 10%;
+  height: 15%;
 }
 
 a{ text-decoration: none; color: inherit;}
@@ -124,4 +124,10 @@ a:hover{text-decoration: none;}
 
 .textfields{
   padding-top: 20px;
+}
+.around_textfields{
+  margin: 2%;
+  border-radius: 5px;
+  border: 1px solid $dark-blue;
+  padding: 10px;
 }

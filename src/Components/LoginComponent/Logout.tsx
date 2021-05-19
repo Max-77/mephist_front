@@ -7,7 +7,7 @@ import {LOGIN_LOGOUT} from "../../authStore/actionCreator";
 
 const LogoutComponent:React.FC = ()=>{
     const classes = useStyles();
-    const url = 'http://localhost:8080/api/auth/logout';
+    const url = '/api/auth/logout';
 
     const logout = ()=>{
         fetch(url,{
